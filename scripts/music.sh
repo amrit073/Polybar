@@ -14,7 +14,7 @@
 
 player_status=$(playerctl status 2> /dev/null)
 if [[ $? -eq 0 ]]; then
-    metadata=`playerctl metadata title| sed 'y/(-|/***/;s/ //g' | cut -d* -f1 `
+    metadata=`playerctl metadata title| sed 'y/[(|/***/;s/ //g' | cut -d* -f1 | sed 's/-/*/g' | cut -d* -f2 `
 fi
 
 # Foreground color formatting tags are optional
