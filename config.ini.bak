@@ -19,18 +19,6 @@ semi-trans-black = #aa000000
 background = #282A2E
 background-alt = #373B41
 foreground = #C5C8C6
-background-1 = #09124d
-background-2 = #0f195a
-background-3 = #1b266e
-background1 = #975567
-background2 = #a55268
-background3 = #a55268
-background4 = #b6506b
-background5 = #cc4d52
-background6 = #d2444a
-background7=  #dc373e
-
-
 ; foreground = #3eaae6
 
 ; primary = #118a55
@@ -101,69 +89,12 @@ wm-restack = generic
 ; override-redirect = true
 
 ;==========================================================
-
-[module/xworkspaces]
-type = internal/xworkspaces
-
-label-active = 
-label-active-background = ${colors.background-alt}
-label-active-underline= ${colors.primary}
-label-active-padding = 1
-
-label-occupied = 
-label-occupied-padding = 1
-
-label-urgent = 
-label-urgent-background = ${colors.alert}
-label-urgent-padding = 1
-
-label-empty = 
-label-empty-foreground = ${colors.disabled}
-label-empty-padding = 1
-
-label-foreground = ${colors.primary}
-; label-background = ${colors.background-1}
-
-;==========================================================
-[module/sp]
-type = custom/text
-content = "  "
-label = 
-content-foreground = ${colors.primary}
-; content-background = ${colors.background2}
-click-left = playerctl previous
-
-[module/spp]
+ 
+[module/altermusic]
 type = custom/script
-exec = $HOME/.config/polybar/scripts/music.sh
-;format-background = ${colors.background}
+exec = $HOME/.config/polybar/scripts/altermusic.sh
 click-left = playerctl play-pause &
 tail = true
-
-[module/sn]
-type = custom/text
-content = "  "
-tail = true
-format = <label>
-content-foreground = ${colors.primary}
-click-left = playerctl next
-
-[module/polywins]
-type = custom/script
-exec = ~/.config/polybar/scripts/polywins.sh 2>/dev/null
-format = <label>
-label = %output% 
-label-padding = 1
-tail = true
-format-prefix = ""
-format-suffix = ""
-format-prefix-foreground = ${colors.primary}
-format-suffix-foreground = ${colors.primary}
-
-
-;==========================================================
-
- 
 
 [module/myScripts]
 type = custom/menu
@@ -194,76 +125,6 @@ menu-0-2-foreground = ${colors.primary}
 menu-0-2 = "Restart NetworkManager"
 menu-0-2-exec = systemctl restart NetworkManager 
 
-;==========================================================
-[module/keymap]
-type = custom/ipc
-hook-0 = echo 
-hook-1 = echo 
-click-left = $HOME/.config/polybar/scripts/vimtoogle.sh
-initial = 1 
-format-foreground = ${colors.primary}
-; format-background = ${colors.background1}
-
-[module/pulseaudio]
-type = internal/pulseaudio
-
-format-volume-prefix = " "
-format-volume-prefix-foreground = ${colors.primary}
-format-volume = <label-volume>
-
-label-volume = %percentage%%
-
-label-muted = muted
-label-muted-foreground = ${colors.disabled}
-
-;==========================================================
-[module/pulseaudio-microphone]
-type = custom/script
-format = <label>
-format-prefix = " "
-format-prefix-foreground = ${colors.primary}
-label = %output%
-label-muted = 
-exec = $HOME/.config/polybar/scripts/pulseaudio-microphone.sh
-tail = true
-click-left = $HOME/.config/polybar/scripts/pulseaudio-microphone.sh --toggle &
-scroll-up = $HOME/.config/polybar/scripts/pulseaudio-microphone.sh --increase &
-scroll-down = $HOME/.config/polybar/scripts/pulseaudio-microphone.sh --decrease &
-
-[module/memory]
-type = internal/memory
-interval = 2
-format-prefix = " "
-format-prefix-foreground = ${colors.primary}
-label = %percentage_used:2%%
-
-;==========================================================
-
-[module/cpu]
-type = internal/cpu
-interval = 2
-format-prefix = ""
-format-prefix-foreground = ${colors.primary}
-border-color = ${colors.primary}
-label = "%percentage:2%%"
-click-left = $HOME/.config/polybar/scripts/launch-taskmanager.sh
-
-;==========================================================
-
-[module/date]
-type = internal/date
-interval = 1
-
-
-date = "%I:%M"
-date-alt = "%Y-%m-%d %H:%M:%S "
-
-label = %date%
-format-prefix-foreground = ${colors.primary}
-
-format-prefix = " "
-label-foreground = ${colors.foreground}
-
 [module/powermenu]
 type = custom/menu
 
@@ -292,6 +153,43 @@ menu-0-1-exec = poweroff
 
 
 
+[module/xworkspaces]
+type = internal/xworkspaces
+
+label-active = 
+label-active-background = ${colors.background-alt}
+label-active-underline= ${colors.primary}
+label-active-padding = 1
+
+label-occupied = 
+label-occupied-padding = 1
+
+label-urgent = 
+label-urgent-background = ${colors.alert}
+label-urgent-padding = 1
+
+label-empty = 
+label-empty-foreground = ${colors.disabled}
+label-empty-padding = 1
+
+label-foreground = ${colors.primary}
+
+;==========================================================
+
+[module/polywins]
+type = custom/script
+exec = ~/.config/polybar/scripts/polywins.sh 2>/dev/null
+format = <label>
+label = %output% 
+label-padding = 1
+tail = true
+format-prefix = ""
+format-suffix = ""
+format-prefix-foreground = ${colors.primary}
+format-suffix-foreground = ${colors.primary}
+
+
+;==========================================================
 
 [module/xwindow]
 type = internal/xwindow
@@ -323,9 +221,42 @@ interval = 1
 
 ;==========================================================
 
+[module/pulseaudio]
+type = internal/pulseaudio
+
+format-volume-prefix = " "
+format-volume-prefix-foreground = ${colors.primary}
+format-volume = <label-volume>
+
+label-volume = %percentage%%
+
+label-muted = muted
+label-muted-foreground = ${colors.disabled}
 
 
+;==========================================================
+[module/keymap]
+type = custom/ipc
+hook-0 = echo 
+hook-1 = echo 
+click-left = $HOME/.config/polybar/scripts/vimtoogle.sh
+initial = 1 
+format-foreground = ${colors.primary}
 
+
+;==========================================================
+[module/pulseaudio-microphone]
+type = custom/script
+format = <label>
+format-prefix = " "
+format-prefix-foreground = ${colors.primary}
+label = %output%
+label-muted = 
+exec = $HOME/.config/polybar/scripts/pulseaudio-microphone.sh
+tail = true
+click-left = $HOME/.config/polybar/scripts/pulseaudio-microphone.sh --toggle &
+scroll-up = $HOME/.config/polybar/scripts/pulseaudio-microphone.sh --increase &
+scroll-down = $HOME/.config/polybar/scripts/pulseaudio-microphone.sh --decrease &
 
 ;==========================================================
 
@@ -343,7 +274,24 @@ label-indicator-background = ${colors.secondary}
 
 ;==========================================================
 
+[module/memory]
+type = internal/memory
+interval = 2
+format-prefix = " "
+format-prefix-foreground = ${colors.primary}
+label = %percentage_used:2%%
 
+
+;==========================================================
+
+[module/cpu]
+type = internal/cpu
+interval = 2
+format-prefix = ""
+format-prefix-foreground = ${colors.primary}
+border-color = ${colors.primary}
+label = "%percentage:2%%"
+click-left = $HOME/.config/polybar/scripts/launch-taskmanager.sh
 
 ;==========================================================
 
@@ -368,6 +316,22 @@ inherit = network-base
 interface-type = wired
 label-connected = %{F#F0C674}%ifname%%{F-} %local_ip%
 
+;==========================================================
+
+[module/date]
+type = internal/date
+interval = 1
+
+
+date = "%I:%M"
+date-alt = "%Y-%m-%d %H:%M:%S "
+
+label = %date%
+format-prefix-foreground = ${colors.primary}
+
+format-prefix = " "
+label-foreground = ${colors.foreground}
+
 
 ;==========================================================
 [settings]
@@ -377,6 +341,29 @@ pseudo-transparency = true
 ; vim:ft=dosini
 
 
+[module/sn]
+type = custom/text
+
+content = "  "
+tail = true
+format = <label>
+content-foreground = ${colors.primary}
+click-left = playerctl next
+
+[module/sp]
+type = custom/text
+content = "  "
+label = 
+content-foreground = ${colors.primary}
+;content-background = ${colors.background}
+click-left = playerctl previous
+
+[module/spp]
+type = custom/script
+exec = $HOME/.config/polybar/scripts/music.sh
+;format-background = ${colors.background}
+click-left = playerctl play-pause &
+tail = true
 
 
 
@@ -387,9 +374,3 @@ format = <label>
 content-background = #093b92
 content-foreground = ${colors.primary}
 ;==========================================================
-
-[module/altermusic]
-type = custom/script
-exec = $HOME/.config/polybar/scripts/altermusic.sh
-click-left = playerctl play-pause &
-tail = true

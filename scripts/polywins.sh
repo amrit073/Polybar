@@ -13,8 +13,8 @@ active_underline="#F0C674"
 
 separator="-"
 show="window_class" # options: window_title, window_class, window_classname
-forbidden_classes="Polybar Conky Gmrun Xfdesktop Xfce4-panel"
-empty_desktop_message="hey! "
+forbidden_classes="Polybar conky Gmrun Xfdesktop Xfce4-panel"
+empty_desktop_message="Haare Krishna "
 
 char_limit=10
 max_windows=15
