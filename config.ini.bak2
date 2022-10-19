@@ -31,14 +31,12 @@ background4 = #b6506b
 background5 = #cc4d52
 background6 = #d2444a
 background7=  #dc373e
-vimback = #1e2122
-vimfor = #c0b196
+
 
 ; foreground = #3eaae6
-primary =#729f95 
-;this was default
-;primary = #98c1d9
-;primary = #118a55
+
+primary = #98c1d9
+ ;primary = #118a55
 ; primary = #19c686
 ;primary = #FFA500
 secondary = #8ABEB7
@@ -61,8 +59,8 @@ width = 100%
 height = 15pt
 radius = 6
 dpi = 80
-background = ${colors.vimback}
-foreground = ${colors.vimfor}
+background = ${colors.trans}
+foreground = ${colors.foreground}
 line-size = 2pt
 border-size = 1pt
 border-color = #00000000
@@ -83,12 +81,12 @@ font-1 = FontAwesome;3
 modules-left = xworkspaces sp spp sn 
 modules-center = polywins
 ;modules-center = polybar-windows
-modules-right  = myScripts keymap  pulseaudio pulseaudio-microphone memory cpu date powermenu
+modules-right  = myScripts  keymap  pulseaudio pulseaudio-microphone memory cpu date powermenu
 
 cursor-click = pointer
 cursor-scroll = ns-resize
 
-enable-ipc = true
+;enable-ipc = true
 
 tray-position = right
 tray-detached = false 
@@ -274,7 +272,7 @@ label = %date%
 format-prefix-foreground = ${colors.primary}
 
 format-prefix = " "
-;label-foreground = ${colors.foreground}
+label-foreground = ${colors.foreground}
 
 [module/powermenu]
 type = custom/menu
