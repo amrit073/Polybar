@@ -5,7 +5,7 @@ then
 
 else
 	setxkbmap -option caps:escape
+	xmodmap -e  'keycode 9 = grave asciitilde'
 	polybar-msg hook keymap 2
 
 fi
-
